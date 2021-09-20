@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 RSpec.describe Sidekiq::Throttled::Strategy do
-  subject(:strategy) { described_class.new(:foo, **options) }
+  subject(:strategy) { described_class.new(:foo, options) }
 
   let(:threshold)       { { :threshold => { :limit => 5, :period => 10 } } }
   let(:concurrency)     { { :concurrency => { :limit => 7 } } }

@@ -15,12 +15,12 @@ module Sidekiq
         # @note prints a warning to STDERR upon duplicate strategy name
         # @param (see Strategy#initialize)
         # @return [Strategy]
-        def add(name, **kwargs)
+        def add(name, kwargs)
           name = name.to_s
 
           warn "Duplicate strategy name: #{name}" if @strategies[name]
 
-          @strategies[name] = Strategy.new(name, **kwargs)
+          @strategies[name] = Strategy.new(name, kwargs)
         end
 
         # Adds alias for existing strategy.

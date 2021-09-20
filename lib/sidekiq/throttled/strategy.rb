@@ -22,7 +22,11 @@ module Sidekiq
       # @param [Hash] threshold Threshold options.
       #   See {Strategy::Threshold#initialize} for details.
       # @param [Hash] key_suffix Proc for dynamic keys.
-      def initialize(name, concurrency: nil, threshold: nil, key_suffix: nil)
+      def initialize(name, opts = {})
+        concurrency = opts[:concurrency]
+        threshold = opts[:threshold]
+        key_suffix = opts[:key_suffix]
+
         key = "throttled:#{name}"
 
         @concurrency =

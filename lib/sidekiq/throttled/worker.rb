@@ -72,8 +72,8 @@ module Sidekiq
         #
         # @see Registry.add
         # @return [void]
-        def sidekiq_throttle(**kwargs)
-          Registry.add(self, **kwargs)
+        def sidekiq_throttle(kwargs)
+          Registry.add(self, kwargs)
         end
 
         # Adds current worker to preconfigured throtttling strtegy. Allows

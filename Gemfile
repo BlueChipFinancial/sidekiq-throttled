@@ -7,6 +7,12 @@ gem "rake"
 gem "rspec"
 gem "rubocop"
 
+gem 'pry'
+gem 'json', "= 1.8.6"
+gem 'celluloid', "= 0.17.4"
+gem 'timers', '= 4.1.2'
+gem 'connection_pool', "= 2.2.2"
+
 group :test do
   gem "coveralls"
   gem "rack-test"

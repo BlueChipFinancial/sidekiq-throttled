@@ -32,7 +32,8 @@ module Sidekiq
 
         # @param [#to_s] source Lua script
         # @paral [Logger] logger
-        def initialize(source, logger: Sidekiq.logger)
+        def initialize(source, opts={})
+          logger = opts[:logger] || Sidekiq.logger
           @source = source.to_s.strip.freeze
           @digest = Digest::SHA1.hexdigest(@source).freeze
           @logger = logger

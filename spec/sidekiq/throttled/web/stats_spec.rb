@@ -46,7 +46,7 @@ RSpec.describe Sidekiq::Throttled::Web::Stats do
     context "with Concurrency strategy with a dynamic key suffix" do
       let :strategy do
         Sidekiq::Throttled::Strategy::Concurrency.new(
-          :foo, :limit => 10, :key_suffix => -> (i) { i }
+          :foo, :limit => 10, :key_suffix => ->(i) { i }
         )
       end
 
@@ -88,7 +88,7 @@ RSpec.describe Sidekiq::Throttled::Web::Stats do
     context "with Threshold strategy with a key suffix" do
       let :strategy do
         Sidekiq::Throttled::Strategy::Threshold.new(
-          :foo, :limit => 10, :period => 75, :key_suffix => -> (i) { i }
+          :foo, :limit => 10, :period => 75, :key_suffix => ->(i) { i }
         )
       end
       it "raises an error when instantiated" do
